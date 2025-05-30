@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idrees Khan - Software Engineer & AI Enthusiast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid white;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: white;
+        }
+
+        .section-dark {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .project-link:hover {
+            background: #5a6fd8;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            left: 50px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .experience-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                left: 0;
+                margin-left: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Idrees Khan</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Idrees Khan</h1>
+            <p>Software Engineer | AI Enthusiast | Problem Solver</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-light">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">IK</div>
+                <div class="about-text">
+                    <h3>Passionate Software Engineer</h3>
+                    <p>Results-driven Software Engineer with hands-on experience in autonomous vehicle testing, full-stack development, and emerging AI technologies. Currently pursuing a Master's in Artificial Intelligence while working at Zoox on cutting-edge autonomous vehicle systems.</p>
+                    <p>I specialize in Python development, machine learning frameworks, and building scalable software solutions. My background spans from defense language instruction to autonomous vehicle testing, giving me a unique perspective on technology's real-world applications.</p>
+                    <p>Based in Pleasanton, California, I'm passionate about leveraging AI and machine learning to solve complex problems and create innovative solutions that make a difference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                        <span class="skill-tag">R</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">ReactJS</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Specialized Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Autonomous Vehicles</span>
+                        <span class="skill-tag">Unix/Linux</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">System Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Yahoo Finance Data Analysis</h3>
+                        <p>Financial data processing and visualization tool</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">Data Viz</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a comprehensive financial data analysis application that retrieves real-time stock market data using the Yahoo Finance API. Features include data processing pipelines with Pandas for financial metrics calculation, trend analysis, and interactive visualizations for investment decision-making support.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Khan202020/yahooFinance" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>LinguaBridge Translation Platform</h3>
+                        <p>Multi-language translation web application</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Multi-language</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Developed a web-based translation application supporting multiple languages with real-time translation capabilities. Features include language detection, user-friendly interface, and integration with third-party translation services for optimized response times and seamless user experience.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Khan202020/linguabridge-translation" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>States Information REST API</h3>
+                        <p>Comprehensive US states data API service</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Database</span>
+                            <span class="tech-tag">JSON</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a comprehensive REST API providing detailed information about US states including demographics and statistics. Features proper API endpoints with JSON responses, error handling for reliable data access, and optimized database schema with efficient query design.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Khan202020/states-api" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Software QA Engineer | AV Software Tester</h3>
+                    <div class="company">Zoox (Contract)</div>
+                    <div class="date">April 2024 – April 2025 | Pleasanton, CA</div>
+                    <p>Deployed software onto Zoox autonomous vehicles, executed comprehensive test runs, and developed shell scripting solutions for automation. Conducted software and hardware troubleshooting, managed issue tracking with Jira, and ensured compliance with safety standards for autonomous vehicle systems.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Software Developer</h3>
+                    <div class="company">Studio99 (Contract)</div>
+                    <div class="date">2021-2022 | Remote</div>
+                    <p>Designed and maintained software systems in collaboration with customers, ensuring alignment with business goals. Enhanced client software performance through database optimization and delivered custom project scopes using modern development practices and Python frameworks.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Account Manager</h3>
+                    <div class="company">Speedex Courier Service LLC</div>
+                    <div class="date">2015-2018 | Fremont, CA</div>
+                    <p>Managed client relationships and developed strategic account plans that increased client retention by 25%. Created reporting systems for business data analysis and collaborated with operations teams to optimize service delivery and improve customer satisfaction.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Instructor/Teacher</h3>
+                    <div class="company">Defense Language Institute</div>
+                    <div class="date">2012-2013 | Monterey, CA</div>
+                    <p>Developed and delivered educational content with integrated technology for interactive learning experiences. Provided cultural training and educational support to 200+ Army personnel, creating curriculum materials and assessment tools for enhanced learning outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm currently pursuing my Master's in Artificial Intelligence and actively seeking opportunities in ML Engineering, Software Development, and AI research. Let's discuss how we can work together!</p>
+                <div class="contact-links">
+                    <a href="mailto:khanidrees7972@gmail.com" class="contact-link">
+                        📧 Email
+                    </a>
+                    <a href="https://linkedin.com/in/idrees-khan-6666a7114" class="contact-link" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/Khan202020" class="contact-link" target="_blank">
+                        💻 GitHub
+                    </a>
+                    <a href="tel:925-548-7972" class="contact-link">
+                        📞 Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Idrees Khan. Built with passion for technology and innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.skill-category, .project-card, .experience-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial styles for animation
+        document.querySelectorAll('.skill-category, .project-card, .experience-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s, transform 0.6s';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+    </script>
+</body>
+</html>
